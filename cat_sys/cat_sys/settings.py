@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-p1gh9zt2whrycpsi(6ek$$dmii*&o@tl94-r*(-7($*j4!dwz6'
+SECRET_KEY = 'django-insecure-bi@xkio0gn$9t75_tq3_0b(7%cuw^ur5mc-e-r%r%vy$=_+h#$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['101.201.149.12']
 
 
 # Application definition
@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'cat_sys.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'db_online_exam',
+        'HOST':'101.201.149.12',
+        'PORT':3306,
+        'USER':'lxy',
+        'PASSWORD':'Blissful123',
     }
 }
 
@@ -103,9 +107,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'zh-hans'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
