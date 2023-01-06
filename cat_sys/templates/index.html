@@ -1,13 +1,22 @@
-<html lang="zh-hans">
-
-<head>
-    <meta charset="utf-8">
-    <title>测试</title>
-
-</head>
-
-<body>
-    这是测试页面
-</body>
-
-</html>
+<!-- extends表明此页面继承自 base.html 文件 -->
+{% extends "base.html" %}
+{% load static %}
+<!-- 写入 base.html 中定义的 title -->
+{% block title %}
+在线考试系统
+{% endblock title %}
+<!-- 写入 base.html 中定义的 content -->
+{% block content %}
+<div class="container">
+    <div class="container">
+        <br>
+        <h3>考试信息</h3>
+        <div class="container">
+            <div class="row mt-4">
+                测试
+            </div>
+        </div>
+        <p></p>
+    </div>
+</div>
+{% endblock content %}
