@@ -13,7 +13,22 @@
         <h3>考试信息</h3>
         <div class="container">
             <div class="row mt-4">
-                测试
+                {% for paper1 in paper %}
+                <!-- 文章内容 -->
+                <div class="col-6 mb-6">
+                    <!-- 卡片容器 -->
+                    <div class="card">
+                        <!-- 标题 -->
+                        <h4 class="card-header">测试 {{ paper1.tid }}</h4>
+                        <!-- 摘要 -->
+                        <div class="card-body">
+                            <h4 class="card-title">{{ paper1.title }}</h4>
+                            <p class="card-text">{{ paper1.total_time }}</p>
+                            <a href="/startExam/?sid={{ student.sid }}&tid={{ paper1.tid }}" class="card-link">开始考试</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
             </div>
         </div>
         <p></p>

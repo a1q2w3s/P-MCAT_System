@@ -2,9 +2,31 @@ from django.db import models
 
 # 考生表
 class Student(models.Model):
+    GRADE_1 = 'G1'
+    GRADE_2 = 'G2'
+    GRADE_3 = 'G3'
+    GRADE_4 = 'G4'
+    GRADE_5 = 'G5'
+    GRADE_6 = 'G6'
+    GRADE_7 = 'G7'
+    GRADE_8 = 'G8'
+    GRADE_9 = 'G9'
+    GRADE_CHOICES = [
+        (GRADE_1,'一年级'),
+        (GRADE_2,'二年级'),
+        (GRADE_3,'三年级'),
+        (GRADE_4,'四年级'),
+        (GRADE_5,'五年级'),
+        (GRADE_6,'六年级'),
+        (GRADE_7,'七年级'),
+        (GRADE_8,'八年级'),
+        (GRADE_9,'九年级'),
+    ]
+
     sid = models.CharField(max_length=20,primary_key=True,verbose_name='考生号')
     name = models.CharField(max_length=20,verbose_name='姓名')
     sex = models.BooleanField(default=0,choices=[(0,'女'),(1,'男')],verbose_name='性别')
+    grade = models.CharField(max_length=50,default=GRADE_1,choices=GRADE_CHOICES)
     pwd = models.CharField(max_length=20,verbose_name='密码')
 
     class Meta:
@@ -37,7 +59,8 @@ class Item(models.Model):
         verbose_name_plural = '题库'
 
     def __str__(self):
-        return self.iid
+        temp = '题目 '+ str(self.iid) + ' ' +self.title
+        return temp
 
 
 # 考试表
