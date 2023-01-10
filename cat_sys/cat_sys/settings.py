@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'exam',
+    'import_export',
     
 ]
 
@@ -136,3 +137,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR,"/static/"),
 ]
 
+IMPORT_EXPORT_USE_TRANSACTIONS = True
+
+SIMPLEUI_HOME_INFO = False
