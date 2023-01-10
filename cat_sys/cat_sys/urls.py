@@ -10,3 +10,8 @@ urlpatterns = [
          {'document_root': settings.STATIC_ROOT}, name='static'),
     path('', include(urls)),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns.append(path('__debug__/',include(debug_toolbar.urls)))
+
