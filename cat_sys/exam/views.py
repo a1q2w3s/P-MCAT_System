@@ -38,7 +38,6 @@ def index(request):
         student = models.Student.objects.get(sid=username)
         
         paper = student.test_set.all()
-        print(paper)
         return render(request, 'index.html', {'student':student,'paper':paper})
     
     else:

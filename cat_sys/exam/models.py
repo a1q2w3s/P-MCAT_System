@@ -26,7 +26,7 @@ class Student(models.Model):
     sid = models.CharField(max_length=20,primary_key=True,verbose_name='考生号')
     name = models.CharField(max_length=20,verbose_name='姓名')
     sex = models.BooleanField(default=0,choices=[(0,'女'),(1,'男')],verbose_name='性别')
-    grade = models.CharField(max_length=50,default=GRADE_1,choices=GRADE_CHOICES)
+    grade = models.CharField(max_length=50,default=GRADE_1,choices=GRADE_CHOICES,verbose_name='年级')
     pwd = models.CharField(max_length=20,verbose_name='密码')
 
     class Meta:
@@ -59,8 +59,7 @@ class Item(models.Model):
         verbose_name_plural = '题库'
 
     def __str__(self):
-        temp = '题目 '+ str(self.iid) + ' ' +self.title
-        return temp
+        return str(self.iid)
 
 
 # 考试表
