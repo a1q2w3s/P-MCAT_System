@@ -8,8 +8,8 @@ from .resource import StudentResource
 class StudentAdmin(ImportExportModelAdmin):
     resource_class = StudentResource
 
-    list_display = ('sid','name','sex','grade')
-    fields = ('sid','name','sex','grade','pwd')
+    list_display = ('sid','sex','grade')
+    fields = ('sid','sex','grade')
 
 
 @admin.register(Test)

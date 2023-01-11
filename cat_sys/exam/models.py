@@ -12,22 +12,15 @@ class Student(models.Model):
     GRADE_8 = 'G8'
     GRADE_9 = 'G9'
     GRADE_CHOICES = [
-        (GRADE_1,'一年级'),
-        (GRADE_2,'二年级'),
-        (GRADE_3,'三年级'),
-        (GRADE_4,'四年级'),
-        (GRADE_5,'五年级'),
-        (GRADE_6,'六年级'),
-        (GRADE_7,'七年级'),
-        (GRADE_8,'八年级'),
-        (GRADE_9,'九年级'),
+        (GRADE_1,'一年级'),(GRADE_2,'二年级'),(GRADE_3,'三年级'),
+        (GRADE_4,'四年级'),(GRADE_5,'五年级'),(GRADE_6,'六年级'),
+        (GRADE_7,'七年级'),(GRADE_8,'八年级'),(GRADE_9,'九年级'),
     ]
 
     sid = models.CharField(max_length=20,primary_key=True,verbose_name='考生号')
-    name = models.CharField(max_length=20,verbose_name='姓名')
-    sex = models.BooleanField(default=0,choices=[(0,'女'),(1,'男')],verbose_name='性别')
-    grade = models.CharField(max_length=50,default=GRADE_1,choices=GRADE_CHOICES,verbose_name='年级')
-    pwd = models.CharField(max_length=20,verbose_name='密码')
+    sex = models.BooleanField(choices=[(0,'女'),(1,'男')],null=True,verbose_name='性别')
+    grade = models.CharField(max_length=50,choices=GRADE_CHOICES,null=True,verbose_name='年级')
+    extend_data = models.JSONField(null=True,help_text='用于扩展当前收集的人口统计学变量',verbose_name='其他')
 
     class Meta:
         verbose_name = '考生'

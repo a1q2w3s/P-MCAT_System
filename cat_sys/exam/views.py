@@ -12,17 +12,16 @@ def studentLogin(request):
     if request.method == 'POST':
         # 提取表单信息
         sid = request.POST.get('sid')
-        pwd = request.POST.get('pwd')
         
         # 通过学号获取该学生实体
-        student = models.Student.objects.get(sid=sid)
-        if pwd == student.pwd: #密码匹配登录成功
+        try:
+            student = models.Student.objects.get(sid=sid)
             request.session['username'] = sid
             request.session['is_login'] = True
             paper = student.test_set.all()
             return render(request, 'index.html', {'student': student,'paper':paper})
-        else:
-            return render(request,'login.html',{'message':'密码错误！'})
+        except:
+            return render(request,'login.html',{'message':'考生号错误！请核对后重新输入！'})
     
     elif request.method == 'GET':
         return render(request, 'login.html')
