@@ -12,7 +12,6 @@ def studentLogin(request):
     if request.method == 'POST':
         # 提取表单信息
         sid = request.POST.get('sid')
-        
         # 通过学号获取该学生实体
         try:
             student = models.Student.objects.get(sid=sid)
@@ -64,4 +63,4 @@ def startExam(request):
         temp = 100
         item = conn.r(f'round(runif(1)*{temp})')
         
-        return render(request,'startExam.html',{'student':student.name,'item':int(item)})
+        return render(request,'startExam.html',{'student':student.sid,'item':int(item)})
