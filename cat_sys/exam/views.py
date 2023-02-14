@@ -61,7 +61,10 @@ def startExam(request):
         username = request.session.get('username',None)
         student = models.Student.objects.get(sid=username)
 
+        paper = request.GET.get('tid',None)
+
         temp = 100
         item = conn.r(f'round(runif(1)*{temp})')
+        title = models.Item.objects.filter(iid=item+380).values_list('title')[0][0]
         
-        return render(request,'startExam.html',{'student':student.sid,'item':int(item)})
+        return render(request,'startExam.html',{'student':student.sid,'title':title})

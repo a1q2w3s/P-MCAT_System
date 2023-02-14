@@ -24,15 +24,37 @@ class ItemResource(resources.ModelResource):
                 pass
             options = json.dumps(options_row,ensure_ascii=False)
 
+            answer_row = OrderedDict()
+            try:
+                for i in range(100):
+                    answer_row[f'ans_{i+1}'] = row[f'ans_{i+1}']
+            except Exception as e:
+                pass
+            answer = json.dumps(answer_row,ensure_ascii=False)
 
+            parameters_row = OrderedDict()
+            try:
+                for i in range(100):
+                    parameters_row[f'par_{i+1}'] = row[f'par_{i+1}']
+            except Exception as e:
+                pass
+            parameters = json.dumps(parameters_row,ensure_ascii=False)
+
+            dimensions_row = OrderedDict()
+            try:
+                for i in range(100):
+                    dimensions_row[f'dim_{i+1}'] = row[f'dim_{i+1}']
+            except Exception as e:
+                pass
+            dimensions = json.dumps(dimensions_row,ensure_ascii=False)
 
             row.clear()
             row['title'] = title
             row['types'] = types
             row['options'] = options
-            row['answer'] = "{'a':'a'}"
-            row['parameters'] = "{'a':'a'}"
-            row['dimensions'] = "{'a':'a'}"
+            row['answer'] = answer
+            row['parameters'] = parameters
+            row['dimensions'] = dimensions
             
         except Exception as e:
             print(e)
