@@ -7,17 +7,16 @@
 {% endblock title %}
 <!-- 写入 base.html 中定义的 content -->
 {% block content %}
-
 <div class="login100-pic js-tilt" data-tilt>
     <img src="{% static 'images/img-01.png' %}" alt="IMG">
 </div>
 
-<form class="login100-form validate-form" method="post" action="/studentLogin/">
+<form class="login100-form" method="post" action="/studentLogin/">
     {% csrf_token %}
     <span class="login100-form-title">
         考生登录
     </span>
-    <div class="wrap-input100 validate-input" data-validate="请输入有效的考生号">
+    <div class="wrap-input100">
         <input class="input100" type="text" placeholder="考生号" autocomplete="off" name="sid">
         <span class="focus-input100"></span>
         <span class="symbol-input100">
@@ -25,11 +24,19 @@
         </span>
     </div>
 
+    <div style="text-align: center;">
+        <small>{{ msg }}</small>
+    </div>
+
     <div class="container-login100-form-btn">
         <button class="login100-form-btn" type="submit">
             登录
         </button>
     </div>
+
+    <br>
+
+
 
 </form>
 {% endblock content %}
